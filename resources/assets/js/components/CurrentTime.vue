@@ -26,7 +26,7 @@ export default {
         },
         timeformat: {
             type: String,
-            default: 'HH:mm:ss',
+            default: 'h:mm:ss a',
         },
         grid: {
             type: String,

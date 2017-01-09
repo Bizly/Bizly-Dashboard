@@ -28,11 +28,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command(\App\Components\LastFm\FetchCurrentTrack::class)->everyMinute();
+        //$schedule->command(\App\Components\LastFm\FetchCurrentTrack::class)->everyMinute();
         $schedule->command(\App\Components\GoogleCalendar\FetchGoogleCalendarEvents::class)->everyFiveMinutes();
         $schedule->command(\App\Components\GitHub\FetchGitHubFileContent::class)->everyFiveMinutes();
         $schedule->command(\App\Components\InternetConnectionStatus\SendHeartbeat::class)->everyMinute();
-        $schedule->command(\App\Components\Packagist\FetchTotals::class)->hourly();
+        //$schedule->command(\App\Components\Packagist\FetchTotals::class)->hourly();
         $schedule->command(\App\Components\RainForecast\FetchRainForecast::class)->everyMinute();
     }
 }

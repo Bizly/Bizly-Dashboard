@@ -30,50 +30,26 @@ class FetchRainForecast extends Command
      */
     public function handle()
     {
-        $lat = 51.2194;
-        $lng = 4.4025;
+        $lat = 40.7128;
+        $lng = 74.0059;
 
+        $openWeatherMapAPIKey = env('OPEN_WEATHER_MAP_API_KEY');
+        $zipCode = env('WEATHER_ZIP_CODE');
         $responseBody = (string) (new Client())
-                ->get("http://gps.buienradar.nl/getrr.php?lat={$lat}&lon={$lng}")
-                ->getBody();
+            ->get("http://api.openweathermap.org/data/2.5/weather?zip=" . $zipCode . ",us&appid=" . $openWeatherMapAPIKey)
+            ->getBody();
 
         $forecast = $this->getForecastFromResponseBody($responseBody);
-
         event(new ForecastFetched($forecast));
     }
 
     public function getForecastFromResponseBody(string $responseBody): array
     {
-        $forecastItems = explode("\r\n", $responseBody);
 
-        return collect($forecastItems)
-            ->reject(function ($forecastItem) {
-                return $forecastItem == '';
-            })
-            ->map(function (string $forecastItem) {
-                list($chanceOfRain, $time) = explode('|', $forecastItem);
-
-                $chanceOfRain = intval(intval($chanceOfRain) / 255 * 100);
-
-                $carbon = $this->getCarbonFromTime($time);
-
-                $minutes = $carbon->diffInMinutes();
-
-                if ($carbon->isPast()) {
-                    $minutes *= -1;
-                }
-
-                return compact('chanceOfRain', 'minutes');
-            })
-            ->filter(function (array $foreCastItem) {
-                return $foreCastItem['minutes'] > 0;
-            })
-            ->take(6)
-            ->values()
-            ->toArray();
+        return (array) json_decode($responseBody);
     }
 
-    public function getCarbonFromTime(string $time) : Carbon
+    public function getCarbonFromTime(string $time): Carbon
     {
         $dateTime = Carbon::createFromFormat('H:i', $time);
 
