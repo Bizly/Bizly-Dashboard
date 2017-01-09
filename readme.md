@@ -1,6 +1,18 @@
-# dashboard.spatie.be
+
+
+# Bizly Dashboard
 
 This repo contains the source code of https://dashboard.spatie.be
+
+## Up-and-running:
+
+php artisan migrate
+composer install
+npm install
+npm install webpack -g
+npm run dev
+php artisan serve
+
 
 ## Example
 
