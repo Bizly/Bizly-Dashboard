@@ -30,11 +30,10 @@ class FetchGitHubFileContent extends Command
     public function handle()
     {
         $fileNames = explode(',', env('GITHUB_FILES'));
-
         $fileContent = collect($fileNames)
             ->combine($fileNames)
             ->map(function ($fileName) {
-                return GitHub::repo()->contents()->show('spatie', 'tasks', "{$fileName}.md", 'master');
+                return GitHub::repo()->contents()->show('bizly', 'Bizly-Dashboard-Data', "{$fileName}.md", 'master');
             })
             ->map(function ($fileInfo) {
                 return file_get_contents($fileInfo['download_url']);
@@ -43,7 +42,6 @@ class FetchGitHubFileContent extends Command
                 return markdownToHtml($markdownContent);
             })
             ->toArray();
-
         event(new FileContentFetched($fileContent));
     }
 }
