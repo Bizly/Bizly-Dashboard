@@ -10,6 +10,8 @@ return [
     /**
      *  The id of the Google Calendar that will be used by default.
      */
-    'calendar_id' => env('GOOGLE_CALENDAR_ID'),
-    
+    'vacation_calendar_id' => env('GOOGLE_CALENDAR_ID_VACATION'),
+
+    'company_calendar_id' => env('GOOGLE_CALENDAR_ID_COMPANY'),
+
 ];

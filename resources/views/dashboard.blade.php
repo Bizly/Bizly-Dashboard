@@ -5,22 +5,16 @@
     @javascript(compact('pusherKey'))
 
     <div class="dashboard" id="dashboard">
-            <google-calendar grid="a1:a2"></google-calendar>
+            <github-file file-name="README" title="Bizly Dashboard" grid="a1"></github-file>
+            <current-time grid="b1" dateformat="dddd, MMMM D, YYYY"></current-time>
+            <rain-forecast grid="c1"></rain-forecast>
+            <internet-connection grid="d1"></internet-connection>
+            <google-vacation-calendar grid="a2:a4"></google-vacation-calendar>
+            <google-company-calendar grid="b2:b4"></google-company-calendar>
+            <system-statistics grid="d2:d4"></system-statistics>
+            <system-activity grid="e1:e4"></system-activity>
 
-            <last-fm grid="b1:c1"></last-fm>
 
-            <current-time grid="d1" dateformat="ddd DD/MM"></current-time>
-
-            <packagist-statistics grid="b2"></packagist-statistics>
-
-            <rain-forecast grid="c2"></rain-forecast>
-
-            <internet-connection grid="d2"></internet-connection>
-
-            <github-file file-name="README" grid="a3"></github-file>
-            <github-file file-name="README" grid="b3"></github-file>
-            <github-file file-name="README" grid="c3"></github-file>
-            <github-file file-name="README" grid="d3"></github-file>
     </div>
 
 @endsection

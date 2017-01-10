@@ -1,0 +1,73 @@
+<template>
+    <grid :position="grid" modifiers="padded overflow">
+        <section class="packagist-statistics">
+            <h1>System Statistics</h1>
+            <ul>
+                <li class="packagist-statistic">
+                    <span class="packagist-statistics__stars"></span>
+                    <span class="packagist-statistics__count">{{ formatNumber(stars) }}</span>
+                </li>
+                <li class="packagist-statistic">
+                    <h2 class="packagist-statistics__period">Registrations Today</h2>
+                    <span class="packagist-statistics__count">{{ formatNumber(daily) }}</span>
+                </li>
+                <li class="packagist-statistic">
+                    <h2 class="packagist-statistics__period">Logins Today</h2>
+                    <span class="packagist-statistics__count">{{ formatNumber(loginsToday) }}</span>
+                </li>
+                <li class="packagist-statistic -total">
+                    <h2 class="packagist-statistics__period">Total Users</h2>
+                    <span class="packagist-statistics__count">{{ formatNumber(totalUsers) }}</span>
+                </li>
+            </ul>
+        </section>
+    </grid>
+</template>
+
+<script>
+import { formatNumber } from '../helpers';
+import echo from '../mixins/echo';
+import Grid from './Grid';
+import saveState from 'vue-save-state';
+
+export default {
+
+    components: {
+        Grid,
+    },
+
+    mixins: [echo, saveState],
+
+    props: ['grid'],
+
+    data() {
+        return {
+            stars: 0,
+            daily: 0,
+            loginsToday: 7,
+            totalUsers: 1400,
+        };
+    },
+
+    methods: {
+        formatNumber,
+
+        getEventHandlers() {
+            return {
+                'Packagist.TotalsFetched': response => {
+                    this.stars = response.stars;
+                    this.daily = response.daily;
+                    this.monthly = response.monthly;
+                    this.total = response.total;
+                },
+            };
+        },
+
+        getSaveStateConfig() {
+            return {
+                cacheKey: 'system-statistics',
+            };
+        },
+    },
+};
+</script>

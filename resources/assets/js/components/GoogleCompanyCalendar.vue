@@ -1,7 +1,7 @@
 <template>
     <grid :position="grid" modifiers="overflow padded blue">
        <section class="google-calendar">
-           <h1>Upcoming</h1>
+           <h1>Company Calendar</h1>
            <ul class="google-calendar__events">
                <li v-for="event in events"  class="google-calendar__event">
                    <h2 class="google-calendar__event__title">{{ event.name }}</h2>
@@ -26,7 +26,7 @@ export default {
 
     mixins: [echo, saveState],
 
-    props: ['grid'],
+    props: ['grid',],
 
     data() {
         return {
@@ -39,7 +39,7 @@ export default {
 
         getEventHandlers() {
             return {
-                'GoogleCalendar.EventsFetched': response => {
+                'GoogleCalendar.CompanyEventsFetched': response => {
                     this.events = response.events;
                 },
             };
@@ -47,7 +47,7 @@ export default {
 
         getSaveStateConfig() {
             return {
-                cacheKey: 'google-calendar',
+                cacheKey: 'google-company-calendar',
             };
         },
     },

@@ -4,7 +4,7 @@ namespace App\Events\GoogleCalendar;
 
 use App\Events\DashboardEvent;
 
-class EventsFetched extends DashboardEvent
+class VacationEventsFetched extends DashboardEvent
 {
     /** @var array */
     public $events;

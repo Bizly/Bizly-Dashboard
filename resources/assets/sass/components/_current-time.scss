@@ -1,5 +1,6 @@
 .current-time__content {
-    @include position-center;
+    position: absolute;
+    top: 30%;
 
     text-align: center;
 }

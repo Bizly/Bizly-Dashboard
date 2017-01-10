@@ -1,7 +1,7 @@
 <template>
     <grid :position="grid" modifiers="overflow padded blue">
         <section class="github-file">
-            <h1 class="github-file__title">{{ fileName }}</h1>
+            <h1 class="github-file__title">{{ title ? title : fileName }}</h1>
             <div class="github-file__content" v-html="contents"></div>
         </section>
     </grid>
@@ -20,7 +20,7 @@ export default {
 
     mixins: [echo, saveState],
 
-    props: ['fileName', 'grid'],
+    props: ['fileName', 'grid','title'],
 
     data() {
         return {

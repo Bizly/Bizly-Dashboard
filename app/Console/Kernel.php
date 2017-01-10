@@ -2,6 +2,9 @@
 
 namespace App\Console;
 
+use App\Components\GitHub\FetchGitHubFileContent;
+use App\Components\GoogleCalendar\FetchCompanyGoogleCalendarEvents;
+use App\Components\GoogleCalendar\FetchVacationGoogleCalendarEvents;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,8 +16,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Components\GitHub\FetchGitHubFileContent::class,
-        \App\Components\GoogleCalendar\FetchGoogleCalendarEvents::class,
+        FetchGitHubFileContent::class,
+        FetchVacationGoogleCalendarEvents::class,
+        FetchCompanyGoogleCalendarEvents::class,
         \App\Components\LastFm\FetchCurrentTrack::class,
         \App\Components\Packagist\FetchTotals::class,
         \App\Components\InternetConnectionStatus\SendHeartbeat::class,
@@ -29,7 +33,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         //$schedule->command(\App\Components\LastFm\FetchCurrentTrack::class)->everyMinute();
-        $schedule->command(\App\Components\GoogleCalendar\FetchGoogleCalendarEvents::class)->everyFiveMinutes();
+        $schedule->command(FetchVacationGoogleCalendarEvents::class)->everyFiveMinutes();
+        $schedule->command(FetchCompanyGoogleCalendarEvents::class)->everyFiveMinutes();
         $schedule->command(\App\Components\GitHub\FetchGitHubFileContent::class)->everyFiveMinutes();
         $schedule->command(\App\Components\InternetConnectionStatus\SendHeartbeat::class)->everyMinute();
         //$schedule->command(\App\Components\Packagist\FetchTotals::class)->hourly();

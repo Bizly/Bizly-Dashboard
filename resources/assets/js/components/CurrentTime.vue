@@ -35,8 +35,8 @@ export default {
 
     data() {
         return {
-            date: '',
-            time: '',
+            date: '2017-01-01',
+            time: '12:00:00',
         };
     },
 
