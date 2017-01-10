@@ -30,3 +30,8 @@ export function relativeDate(value) {
 
     return upperFirst(date.fromNow());
 }
+
+export function actionDate(value) {
+    const date = moment(value);
+    return date.fromNow();
+}

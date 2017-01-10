@@ -5,7 +5,7 @@
            <ul class="google-calendar__events">
                <li v-for="action in actions"  class="google-calendar__event">
                    <h2 class="google-calendar__event__title">{{ action.summary }}</h2>
-                   <div class="google-calendar__event__date">{{ relativeDate(action.date) }}</div>
+                   <div class="google-calendar__event__date">{{ actionDate(action.date) }}</div>
                </li>
            </ul>
        </section>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { relativeDate } from '../helpers';
+import { actionDate } from '../helpers';
 import echo from '../mixins/echo';
 import Grid from './Grid';
 import saveState from 'vue-save-state';
@@ -35,12 +35,12 @@ export default {
     },
 
     methods: {
-        relativeDate,
+        actionDate,
 
         getEventHandlers() {
             return {
                 'Dashboard.SystemActionCompleted': response => {
-                    this.actions.push(response.action);
+                    this.actions.unshift(response.action);
                 },
             };
         },
