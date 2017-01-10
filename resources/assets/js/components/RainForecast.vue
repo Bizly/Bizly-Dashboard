@@ -1,7 +1,7 @@
 <template>
     <grid :position="grid" modifiers="padded">
         <section :class="addClassModifiers('rain-forecast', status)">
-            <h1 class="rain-forecast__title rain-forecast__title--rainy">{{temperature}}</h1>
+            <h1 class="rain-forecast__title rain-forecast__title--rainy">{{temperature}}&deg;</h1>
             <h1 class="rain-forecast__title rain-forecast__title--rainy" v-if="status == 'wet'">STAY INSIDE</h1>
             <div class="rain-forecast__background"></div>
             <div class="rain-forecast__graph" >
@@ -95,7 +95,7 @@ export default {
             return {
                 'RainForecast.ForecastFetched': response => {
                     this.forecast = response.forecast;
-                    this.temperature = (this.forecast.main.temp*9/5)-459.67;
+                    this.temperature = ((this.forecast.main.temp*9/5)-459.67).toFixed(1);
 
                 },
             };
