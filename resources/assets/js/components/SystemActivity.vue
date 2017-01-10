@@ -3,9 +3,9 @@
        <section class="google-calendar">
            <h1>System Activity</h1>
            <ul class="google-calendar__events">
-               <li v-for="event in events"  class="google-calendar__event">
-                   <h2 class="google-calendar__event__title">{{ event.name }}</h2>
-                   <div class="google-calendar__event__date">{{ relativeDate(event.date) }}</div>
+               <li v-for="action in actions"  class="google-calendar__event">
+                   <h2 class="google-calendar__event__title">{{ action.summary }}</h2>
+                   <div class="google-calendar__event__date">{{ relativeDate(action.date) }}</div>
                </li>
            </ul>
        </section>
@@ -30,7 +30,7 @@ export default {
 
     data() {
         return {
-            events: [],
+            actions: [],
         };
     },
 
@@ -39,15 +39,15 @@ export default {
 
         getEventHandlers() {
             return {
-                'GoogleCalendar.EventsFetched': response => {
-                    this.events = response.events;
+                'Dashboard.SystemActionCompleted': response => {
+                    this.actions.push(response.action);
                 },
             };
         },
 
         getSaveStateConfig() {
             return {
-                cacheKey: 'google-calendar',
+                cacheKey: 'system-actions',
             };
         },
     },

@@ -3,21 +3,9 @@
         <section class="packagist-statistics">
             <h1>System Statistics</h1>
             <ul>
-                <li class="packagist-statistic">
-                    <span class="packagist-statistics__stars"></span>
-                    <span class="packagist-statistics__count">{{ formatNumber(stars) }}</span>
-                </li>
-                <li class="packagist-statistic">
-                    <h2 class="packagist-statistics__period">Registrations Today</h2>
-                    <span class="packagist-statistics__count">{{ formatNumber(daily) }}</span>
-                </li>
-                <li class="packagist-statistic">
-                    <h2 class="packagist-statistics__period">Logins Today</h2>
-                    <span class="packagist-statistics__count">{{ formatNumber(loginsToday) }}</span>
-                </li>
-                <li class="packagist-statistic -total">
-                    <h2 class="packagist-statistics__period">Total Users</h2>
-                    <span class="packagist-statistics__count">{{ formatNumber(totalUsers) }}</span>
+                <li v-for="stat in stats" class="packagist-statistic">
+                    <h2 class="packagist-statistics__period">{{stat.label}}</h2>
+                    <span class="packagist-statistics__count">{{ formatNumber(stat.value) }}</span>
                 </li>
             </ul>
         </section>
@@ -42,10 +30,7 @@ export default {
 
     data() {
         return {
-            stars: 0,
-            daily: 0,
-            loginsToday: 7,
-            totalUsers: 1400,
+            stats:[],
         };
     },
 
@@ -54,11 +39,8 @@ export default {
 
         getEventHandlers() {
             return {
-                'Packagist.TotalsFetched': response => {
-                    this.stars = response.stars;
-                    this.daily = response.daily;
-                    this.monthly = response.monthly;
-                    this.total = response.total;
+                'Dashboard.SystemStatisticsFetched': response => {
+                    this.stats = response.stats;
                 },
             };
         },
