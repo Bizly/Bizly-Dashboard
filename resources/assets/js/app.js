@@ -12,6 +12,7 @@ import LastFm from './components/LastFm';
 import RainForecast from './components/RainForecast';
 import SystemActivity from './components/SystemActivity';
 import SystemStatistics from './components/SystemStatistics';
+import CurrentWeatherConditions from './components/CurrentWeatherConditions';
 
 new Vue({
 
@@ -27,6 +28,7 @@ new Vue({
         RainForecast,
         SystemActivity,
         SystemStatistics,
+        CurrentWeatherConditions,
     },
 
     created() {

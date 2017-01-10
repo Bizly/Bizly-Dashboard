@@ -3,10 +3,15 @@
        <section class="google-calendar">
            <h1>System Activity</h1>
            <ul class="google-calendar__events">
-               <li v-for="action in actions"  class="google-calendar__event">
+              <transition-group name="list-complete" tag="p">
+               <li v-bind:key="action" v-for="action in actions"  class="google-calendar__event list-complete-item">
+                
                    <h2 class="google-calendar__event__title">{{ action.summary }}</h2>
+                   
                    <div class="google-calendar__event__date">{{ actionDate(action.date) }}</div>
                </li>
+               </transition-group>
+               
            </ul>
        </section>
     </grid>

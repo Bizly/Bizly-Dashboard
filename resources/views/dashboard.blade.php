@@ -8,6 +8,7 @@
             <github-file file-name="README" title="Bizly Dashboard" grid="a1"></github-file>
             <current-time grid="b1" dateformat="dddd, MMMM D, YYYY"></current-time>
             <rain-forecast grid="c1"></rain-forecast>
+            <current-weather-conditions grid="c2"></current-weather-conditions>
             <internet-connection grid="d1"></internet-connection>
             <google-vacation-calendar grid="a2:a4"></google-vacation-calendar>
             <google-company-calendar grid="b2:b4"></google-company-calendar>

@@ -7,7 +7,7 @@
         }
     }
     @include mod('up') {
-        background-color: color($green, darker);
+        background-color: color($green, blueish);
 
         .internet-connection__icon {
             @include background-icon('/svg/internet--up.svg');

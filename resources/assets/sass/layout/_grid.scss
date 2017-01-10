@@ -51,7 +51,7 @@ $cell-height: percentage(1/$grid-rows);
         @include tile-color(color($blue, darker));
     }
     @include mod(green) {
-        @include tile-color(color($green, darker));
+        @include tile-color(color($green, blueish));
     }
     @include mod(red) {
         @include tile-color(color($red));
