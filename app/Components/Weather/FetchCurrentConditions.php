@@ -1,4 +1,12 @@
 <?php
+/**
+ * Class FetchCurrentConditions
+ *
+ * @package    namespace App\Components\Weather;
+ * @version    1.0.0
+ * @author     Tor Miller
+ * @copyright  (c) 2015-2017, Bizly.co
+ */
 
 namespace App\Components\Weather;
 

@@ -52,6 +52,9 @@ export default {
                 'InternetConnectionStatus.Heartbeat': () => {
                     this.lastHeartBeatReceivedAt = moment();
                 },
+                'Refresh.RefreshSignal': () => {
+                    document.location.href = document.location.href;
+                },
             };
         },
     },
