@@ -1,4 +1,9 @@
 .weather{
+	.weather__icon{
+		position: absolute;
+		right: 0;
+		top:0;
+	}
 	.weather__attribution{
 		position: absolute;
 		right: setting($grid, cell-spacing)/2;
@@ -14,4 +19,5 @@
 		bottom: setting($grid, cell-spacing)/2;
 		font-size: setting($font-size,xxxs);
 	}
+
 }

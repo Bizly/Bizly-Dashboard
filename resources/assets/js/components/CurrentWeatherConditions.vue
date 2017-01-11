@@ -2,7 +2,7 @@
     <grid :position="grid" modifiers="padded softgrey">
         <section class="weather">
             <h1>{{temperature}}&deg; {{icon_alt}}</h1>
-            <img :src="icon_url" :alt="icon_alt"/>
+            <img class="weather__icon" :src="icon_url" :alt="icon_alt"/>
             <div>{{humidity}}</div>
             <div class="weather__updated-at">{{updatedAt}}</div>
             <div title="Weather Underground API Required Attribution" class="weather__attribution">
