@@ -1,6 +1,6 @@
 .internet-connection {
     @include mod('down') {
-        background-color: color($red);
+        background-color: color($purple, burgundy);
 
         .internet-connection__icon {
             @include background-icon('/svg/internet--down.svg');

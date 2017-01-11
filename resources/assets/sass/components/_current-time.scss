@@ -16,7 +16,7 @@
 .current-time__date {
     @include font-sans-bold;
 
-    color: color($red);
+    color: color($purple,burgundy);
 
-    font-size: setting($font-size, m);
+    font-size: setting($font-size, s);
 }

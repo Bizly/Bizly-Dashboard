@@ -2,6 +2,7 @@
     <grid :position="grid">
         <section :class="addClassModifiers('internet-connection', online ? 'up': 'down')">
             <div class="internet-connection__icon">
+                <h2 v-if="online">System Online</h2>
             </div>
         </section>
     </grid>

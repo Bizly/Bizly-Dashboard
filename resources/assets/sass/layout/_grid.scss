@@ -26,7 +26,7 @@ $cell-height: percentage(1/$grid-rows);
 }
 
 .grid__tile {
-    @include tile-color(color($gray, darker));
+    @include tile-color(color($grey, warm));
     @include mod(overflow) {
         &:after {
             content: '';
@@ -45,16 +45,16 @@ $cell-height: percentage(1/$grid-rows);
         }
     }
     @include mod(transparent) {
-        @include tile-color(color($gray, darkest)); // = dashboard background color
+        @include tile-color(color($grey, brownish)); // = dashboard background color
     }
     @include mod(blue) {
-        @include tile-color(color($blue, darker));
+        @include tile-color(color($purple, grape));
     }
     @include mod(green) {
         @include tile-color(color($green, blueish));
     }
     @include mod(red) {
-        @include tile-color(color($red));
+        @include tile-color(color($purple,burgundy));
     }
 
     position: absolute;
@@ -64,7 +64,7 @@ $cell-height: percentage(1/$grid-rows);
     left: setting($grid, cell-spacing)/2;
     overflow: hidden;
 
-    background-color: color($gray, darker);
+    background-color: color($grey, warm);
     border-radius: .25vw;
 
     & > :first-child {
