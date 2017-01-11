@@ -22,14 +22,24 @@
     font-weight: 900;
 }
 
+@mixin source-sans-pro-default {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    color: $white;
+}
+
 $font-size: (
         base: 1.6vw,
+        tiny: .1em,
+        xxxs: .35em,
         xxs: .55em,
         xs: .7em,
         s: .8em,
         default: .9em,
         m: 1em,
-        l: 2em,
-        xl: 3em,
-        xxl: 4em,
+        l: 1.4em,
+        xl: 2em,
+        xxl: 3em,
 );

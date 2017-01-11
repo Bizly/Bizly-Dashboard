@@ -1,4 +1,12 @@
 <?php
+/**
+ * Class CurrentConditionsFetched
+ *
+ * @package    namespace App\Events\Weather;
+ * @version    1.0.0
+ * @author     Tor Miller
+ * @copyright  (c) 2015-2017, Bizly.co
+ */
 
 namespace App\Events\Weather;
 

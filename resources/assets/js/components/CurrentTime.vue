@@ -1,8 +1,9 @@
 <template>
-    <grid :position="grid">
+    <grid :position="grid" modifiers="burgundy">
         <section class="current-time">
             <time class="current-time__content">
                 <span class="current-time__time">{{ time }}</span>
+                <br>
                 <span class="current-time__date">{{ date }}</span>
             </time>
         </section>

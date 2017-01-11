@@ -1,5 +1,6 @@
 html {
     @include antialiasing(pixel);
+    @include source-sans-pro-default;
 
     position: fixed;
     top: 0;
@@ -20,6 +21,17 @@ html {
         &:after,
         &:before {
             box-sizing: border-box;
+        }
+    }
+    body {
+        .footer {
+            position: fixed;
+            right: setting($grid, cell-spacing);
+            bottom: 0;
+            line-height: setting($grid, cell-spacing);
+            height: setting($grid, cell-spacing);
+            color: $white;
+            font-size: setting($font-size, tiny);
         }
     }
 }

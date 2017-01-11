@@ -7,15 +7,15 @@
 
 @import 'layout/defaults';
 @import 'layout/dashboard';
-@import 'layout/graph';
 @import 'layout/grid';
 
+@import 'components/dashboard-info';
 @import 'components/current-time';
+@import 'components/weather';
 @import 'components/internet-connection';
 @import 'components/google-calendar';
 @import 'components/github-file';
 @import 'components/last-fm';
 @import 'components/packagist-statistics';
-@import 'components/rain-forecast';
 
 @import 'transitions/defaults';

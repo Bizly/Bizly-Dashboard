@@ -1,9 +1,11 @@
 <template>
-    <grid :position="grid">
+    <grid :position="grid" modifiers="padded">
         <section :class="addClassModifiers('internet-connection', online ? 'up': 'down')">
             <div class="internet-connection__icon">
-                <h2 v-if="online">System Online</h2>
+                <h1 v-if="online">System Online</h1>
+                <h1 v-if="!online">Connection Lost</h1>
             </div>
+            <div class="internet-connection__lastHeartbeatInfo">Last Heartbeat: {{ actionDate(lastHeartBeatReceivedAt) }}</div>
         </section>
     </grid>
 </template>
@@ -11,7 +13,7 @@
 <script>
 import echo from '../mixins/echo';
 import Grid from './Grid';
-import { addClassModifiers } from '../helpers';
+import { addClassModifiers, actionDate } from '../helpers';
 import moment from 'moment';
 
 export default {
@@ -37,6 +39,7 @@ export default {
 
     methods: {
         addClassModifiers,
+        actionDate,
 
         determineConnectionStatus() {
             const lastHeartBeatReceivedSecondsAgo = moment().diff(this.lastHeartBeatReceivedAt, 'seconds');

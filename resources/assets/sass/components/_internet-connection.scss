@@ -1,4 +1,4 @@
-.internet-connection {
+.internet-connection {  
     @include mod('down') {
         background-color: color($purple, burgundy);
 
@@ -12,5 +12,13 @@
         .internet-connection__icon {
             @include background-icon('/svg/internet--up.svg');
         }
+    }
+
+    .internet-connection__lastHeartbeatInfo {
+        font-size: setting($font-size, xxs);
+        position: absolute;
+        bottom: .2em;
+        right: .5em;
+        text-align: right;
     }
 }

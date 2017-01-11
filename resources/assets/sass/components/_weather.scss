@@ -1,0 +1,17 @@
+.weather{
+	.weather__attribution{
+		position: absolute;
+		right: setting($grid, cell-spacing)/2;
+		bottom: 0;
+		text-align: right;
+		img{
+			width: 40%;
+		}
+	}
+	.weather__updated-at{
+		position: absolute;
+		left: setting($grid, cell-spacing)/2;
+		bottom: setting($grid, cell-spacing)/2;
+		font-size: setting($font-size,xxxs);
+	}
+}
