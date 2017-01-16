@@ -1,5 +1,5 @@
 <template>
-    <grid :position="grid" modifiers="padded">
+    <grid :position="grid" modifiers="padded" v-bind:class="animationClass">
         <section :class="addClassModifiers('internet-connection', online ? 'up': 'down')">
             <div class="internet-connection__icon">
                 <h1 v-if="online">System Online</h1>
@@ -30,6 +30,7 @@ export default {
         return {
             online: true,
             lastHeartBeatReceivedAt: moment(),
+            animationClass: '',
         };
     },
 
@@ -51,6 +52,9 @@ export default {
             return {
                 'InternetConnectionStatus.Heartbeat': () => {
                     this.lastHeartBeatReceivedAt = moment();
+                    this.animationClass = 'animated pulse';
+                    var that = this;
+                    setTimeout(function (){ that.animationClass = '';} ,3000);
                 },
                 'Refresh.RefreshSignal': () => {
                     document.location.href = document.location.href;

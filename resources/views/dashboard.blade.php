@@ -7,6 +7,7 @@
     <div class="dashboard" id="dashboard">
             <dashboard-info company_logo_src_url="{{ $company_logo_src_url }}" grid="a1"></dashboard-info>
             <github-file file-name="README" title="Bizly Dashboard" grid="c3"></github-file>
+            <animations grid="c4"></animations>
             <current-time grid="b1" dateformat="dddd, MMMM D, YYYY"></current-time>
             <current-weather-conditions grid="c1:c2"></current-weather-conditions>
             <internet-connection grid="d1"></internet-connection>

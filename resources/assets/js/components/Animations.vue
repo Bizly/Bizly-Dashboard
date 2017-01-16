@@ -1,11 +1,12 @@
 <template>
-    <grid :position="grid" modifiers="burgundy" v-bind:class="shakeNow">
+    <grid :position="grid" modifiers="burgundy" v-bind:class="animationClass">
         <section class="current-time">
             <time class="current-time__content">
                 <span class="current-time__time">{{ time }}</span>
                 <br>
-                <span class="current-time__date">{{ date }}</span>
+                <span class="current-time__date">{{ animation }}</span>
             </time>
+
         </section>
     </grid>
 </template>
@@ -38,21 +39,27 @@ export default {
         return {
             date: '2017-01-01',
             time: '12:00:00',
-            shakeNow: '',
+            animation: '',
+            currentAnimation: 0,
+            animationClass: '',
+            animations : [
+                'bounce','flash','pulse','shake','headShake','swing','tada','wobble','jello'
+            ],
         };
     },
 
     created() {
         this.refreshTime();
-        setInterval(this.refreshTime, 1000);
-        //this.shakeNow = true;
+        setInterval(this.refreshTime, 3000);
     },
 
     methods: {
         refreshTime() {
             this.date = moment().format(this.dateformat);
             this.time = moment().format(this.timeformat);
-            this.shakeNow = 'animated shake';
+            this.animation = this.animations[this.currentAnimation];
+            this.animationClass = 'animated ' + this.animation;
+            this.currentAnimation++;
         },
     },
 };
