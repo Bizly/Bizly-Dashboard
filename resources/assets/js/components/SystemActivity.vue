@@ -46,6 +46,11 @@ export default {
             return {
                 'Dashboard.SystemActionCompleted': response => {
                     this.actions.unshift(response.action);
+                    if(this.actions.length > 20){
+                      var nToSplice = this.actions.length - 20;
+                      this.actions.splice(-1,nToSplice);
+                      console.log('splicing last '+nToSplice);
+                    }
                 },
             };
         },

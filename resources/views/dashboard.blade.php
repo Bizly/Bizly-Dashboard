@@ -5,16 +5,17 @@
     @javascript(compact('pusherKey','company_name'))
 
     <div class="dashboard" id="dashboard">
-            <dashboard-info company_logo_src_url="{{ $company_logo_src_url }}" grid="a1"></dashboard-info>
+            <dashboard-info company_logo_src_url="{{ $company_logo_src_url }}" grid="a1:b1"></dashboard-info>
+            <current-time grid="c1:d2" dateformat="dddd, MMMM D, YYYY"></current-time>
+            <current-weather-conditions grid="e1:f2"></current-weather-conditions>
             <github-file file-name="README" title="Bizly Dashboard" grid="c3"></github-file>
-            <animations grid="c4"></animations>
-            <current-time grid="b1" dateformat="dddd, MMMM D, YYYY"></current-time>
-            <current-weather-conditions grid="c1:c2"></current-weather-conditions>
-            <internet-connection grid="d1"></internet-connection>
-            <google-vacation-calendar grid="a2:a4"></google-vacation-calendar>
-            <google-company-calendar grid="b2:b4"></google-company-calendar>
-            <system-statistics grid="d2:d4"></system-statistics>
-            <system-activity grid="e1:e4"></system-activity>
+
+
+            <internet-connection grid="a2:b2"></internet-connection>
+            <google-vacation-calendar grid="a3:b8"></google-vacation-calendar>
+            <google-company-calendar grid="c3:d8"></google-company-calendar>
+            <system-statistics grid="e3:f5"></system-statistics>
+            <system-activity grid="i1:j8"></system-activity>
 
     </div>
 
