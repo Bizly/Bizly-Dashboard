@@ -1,5 +1,5 @@
 <template>
-    <grid :position="grid" modifiers="burgundy" v-bind:class="animationClass">
+    <grid :position="grid" modifiers="purple" v-bind:class="animationClass">
         <section class="current-time">
             <time class="current-time__content">
                 <span class="current-time__time">{{ time }}</span>

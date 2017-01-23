@@ -1,5 +1,5 @@
 <template>
-    <grid :position="grid" modifiers="burgundy" v-bind:class="shakeNow">
+    <grid :position="grid" modifiers="red" v-bind:class="shakeNow">
         <section class="current-time">
             <time class="current-time__content">
                 <span class="current-time__time">{{ time }}</span>

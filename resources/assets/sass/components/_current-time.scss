@@ -15,7 +15,7 @@
     }
 
     .current-time__date {
-        @include font-sans-bold;
+        @include source-sans-pro-default;
 
         color: $goldenrod;
 

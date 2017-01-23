@@ -30,7 +30,6 @@ $cell-height: percentage(1/$grid-rows);
     @include mod(overflow) {
         &:after {
             content: '';
-
             position: absolute;
             bottom: 0;
             left: 0;
@@ -48,7 +47,7 @@ $cell-height: percentage(1/$grid-rows);
         @include tile-color(color($grey, brownish)); // = dashboard background color
     }
     @include mod(blue) {
-        @include tile-color(color($purple, grape));
+        @include tile-color(color($purple, eggplant));
     }
     @include mod(green) {
         @include tile-color(color($green, blueish));
@@ -63,8 +62,8 @@ $cell-height: percentage(1/$grid-rows);
             color: color($green,blueish) !important;
         }
     }
-    @include mod(burgundy) {
-        @include tile-color(color($purple,burgundy));
+    @include mod(purple) {
+        @include tile-color(color($purple,eggplant));
     }
 
     position: absolute;
