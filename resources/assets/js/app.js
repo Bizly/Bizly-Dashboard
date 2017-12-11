@@ -21,7 +21,9 @@ import SystemActivity from './components/SystemActivity';
 import SystemStatistics from './components/SystemStatistics';
 import CurrentWeatherConditions from './components/CurrentWeatherConditions';
 import Animations from './components/Animations';
+// import WaitlistChart from './components/WaitlistChart';
 
+Vue.use(require('chartist-vuejs'));
 
 new Vue({
 
@@ -39,6 +41,7 @@ new Vue({
         SystemStatistics,
         CurrentWeatherConditions,
         Animations,
+        // WaitlistChart,
     },
 
     created() {
